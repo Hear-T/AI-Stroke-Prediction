@@ -1,7 +1,5 @@
 # AI Stroke Prediction - CDC Only
 
-Đây là bản project đã được tinh gọn để chỉ giữ lại **mô hình dự đoán đột quỵ chuẩn CDC/BRFSS**.
-
 ## Mục tiêu của bản này
 
 - Mở ứng dụng là vào thẳng form dự đoán CDC
