@@ -9,6 +9,7 @@ from app.services.preprocess_service import build_cdc_stroke_dataframe
 
 DEFAULT_GEN_HLTH = 3
 DEFAULT_NO_DOC_COST = False
+DEFAULT_ANY_HEALTHCARE = True
 
 
 def render_cdc_stroke_page():
@@ -63,7 +64,6 @@ def render_cdc_stroke_page():
             ment_hlth = st.slider("Số ngày căng thẳng tinh thần (tháng qua)", 0, 30, 0)
             education = st.slider("Cấp bậc Học vấn (1: Thấp, 6: Đại học trở lên)", 1, 6, 4)
             income = st.slider("Mức thu nhập (1: Thấp, 8: Cao)", 1, 8, 5)
-            any_healthcare = st.checkbox("Có Bảo hiểm y tế", value=True)
 
         submitted = st.form_submit_button("🔍 Yêu cầu AI Phân tích Nguy cơ", use_container_width=True)
 
@@ -90,7 +90,7 @@ def render_cdc_stroke_page():
         'ment_hlth': ment_hlth,
         'education': education,
         'income': income,
-        'any_healthcare': any_healthcare,
+        'any_healthcare': DEFAULT_ANY_HEALTHCARE,
         'no_doc_cost': DEFAULT_NO_DOC_COST,
     }
     input_df = build_cdc_stroke_dataframe(form_values)
