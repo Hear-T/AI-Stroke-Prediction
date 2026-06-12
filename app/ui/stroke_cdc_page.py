@@ -95,11 +95,22 @@ def render_cdc_stroke_page():
     }
     input_df = build_cdc_stroke_dataframe(form_values)
     probability = predict_probability_percent(model, input_df)
+    
+    st.session_state.user_data = {
+        'probability': round(probability, 2), # Làm tròn % xác suất
+        'high_bp': 1 if high_bp else 0,
+        'bmi': bmi,
+        'age': age_group,
+        'diabetes': 1 if diabetes != "Không bị" else 0,
+        'heart_disease': 1 if heart_disease else 0,
+        'smoker': 1 if smoking_status != "Chưa bao giờ hút" else 0
+    }
 
     st.markdown("---")
     st.subheader("📊 KẾT QUẢ DỰ ĐOÁN TỪ HỆ THỐNG AI")
     st.plotly_chart(create_cdc_gauge_chart(probability), use_container_width=True)
     level, message = classify_cdc_risk(probability)
+    
     if level == 'high':
         st.error(message)
         st.write(
@@ -114,7 +125,7 @@ def render_cdc_stroke_page():
         st.write("Chúc mừng! Các chỉ số sức khỏe của bạn đang ở mức an toàn.")
 
     st.markdown("---")
-    st.subheader("🩺 Phác đồ Điều trị & Lời khuyên Cá nhân hóa")
+    st.subheader("🩺 Giải thích nguyên nhân & Lời khuyên Cá nhân hóa")
     advice = generate_cdc_advice(form_values)
     if advice:
         st.write("Dựa trên hồ sơ y tế bạn vừa nhập, hệ thống tự động trích xuất các lưu ý sau:")
