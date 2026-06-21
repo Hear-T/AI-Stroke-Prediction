@@ -15,14 +15,9 @@ def main():
         layout="wide",
         initial_sidebar_state="collapsed",
     )
-    st.title("Hệ thống Hỗ trợ Chẩn đoán Nguy cơ Đột quỵ")
-    
-    # Tạo cấu trúc Tab phân tách tính năng rõ ràng
-    tab1, tab2 = st.tabs(["📊 Chẩn đoán nguy cơ & Giải thích XAI", "💬 Trợ lý y khoa ảo Q&A"])
-    
-    with tab1:
-        # Gọi giao diện nhập liệu và chạy mô hình học máy hiện tại của bạn
-        render_cdc_stroke_page()
+ 
+    # Gọi giao diện nhập liệu và chạy mô hình học máy hiện tại của bạn
+    render_cdc_stroke_page()
         
     
 

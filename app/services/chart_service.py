@@ -1,11 +1,13 @@
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
-
 def create_horizontal_impact_chart(plot_df, title):
     fig, ax = plt.subplots(figsize=(9, 5))
-    colors = ['#ff4b4b' if value > 0 else '#00cc96' for value in plot_df['Tác động']]
-    ax.barh(plot_df['Yếu tố'], plot_df['Tác động'], color=colors, height=0.6)
+    
+    # Đã sửa 'Tác động' thành 'Tác động (log-odds)' để khớp 100% với file explain_service.py
+    colors = ['#ff4b4b' if value > 0 else '#00cc96' for value in plot_df['Tác động (log-odds)']]
+    ax.barh(plot_df['Yếu tố'], plot_df['Tác động (log-odds)'], color=colors, height=0.6)
+    
     ax.axvline(0, color='black', linewidth=1.5, linestyle='--')
     ax.set_xticks([])
     ax.spines['top'].set_visible(False)
