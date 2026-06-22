@@ -86,6 +86,11 @@ def render_cdc_stroke_page():
 
     # TẤT CẢ CODE TỪ ĐÂY ĐỀU PHẢI NẰM THỤT LỀ BÊN TRONG KHỐI LỆNH IF NÀY
     if submitted:
+        # ==========================================
+        # BƯỚC QUAN TRỌNG: XÓA DỮ LIỆU CŨ (NẾU CÓ)
+        # ==========================================
+        if 'user_data' in st.session_state:
+            del st.session_state['user_data']
         form_values = {
             'gender': gender,
             'age': age,
@@ -158,7 +163,7 @@ def render_cdc_stroke_page():
             model=model, 
             dataframe=input_df, 
             translation_map=KAGGLE_FEATURE_TRANSLATIONS,
-            top_n=5
+            
         )
         
         # In bảng số liệu

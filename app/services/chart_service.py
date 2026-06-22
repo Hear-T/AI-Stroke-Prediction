@@ -25,7 +25,7 @@ def create_cdc_gauge_chart(probability):
         domain={'x': [0, 1], 'y': [0, 1]},
         title={'text': "Tỉ lệ rủi ro (%)", 'font': {'size': 20, 'color': 'white'}},
         gauge={
-            'axis': {'range': [0, 100], 'tickwidth': 1, 'tickcolor': 'black'},
+            'axis': {'range': [0, 50], 'tickwidth': 1, 'tickcolor': 'black'},
             'bar': {'color': '#333333'},
             'bgcolor': 'white',
             'borderwidth': 2,
@@ -33,7 +33,7 @@ def create_cdc_gauge_chart(probability):
             'steps': [
                 {'range': [0, 10], 'color': '#00cc96'},
                 {'range': [10, 20], 'color': '#ffc107'},
-                {'range': [20, 100], 'color': '#ff4b4b'},
+                {'range': [20, 50], 'color': '#ff4b4b'},
             ],
         },
     ))
