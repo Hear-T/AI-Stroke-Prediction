@@ -8,7 +8,7 @@ pinned: false
 app_port: 7860
 ---
 
-# 🏥 AI Stroke Prediction System (CDC/BRFSS)
+# 🏥 AI Stroke Prediction System
 
 AI Stroke Prediction System là hệ thống hỗ trợ **dự đoán nguy cơ đột quỵ** dựa trên dữ liệu sức khỏe cá nhân theo hướng **CDC/BRFSS**.
 
